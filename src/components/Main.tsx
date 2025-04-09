@@ -4,7 +4,7 @@ import Totals from "./Totals";
 import { Button } from "./ui/button";
 import {
     collection,
-    addDoc,
+    // addDoc,
     onSnapshot,
 } from "firebase/firestore"
 import { db } from "../firebase"
@@ -32,14 +32,14 @@ const Main = () => {
         return () => unsubscribe()
     }, [])
 
-    const addExpense = async () => {
-        await addDoc(collection(db, "expenses"), {
-            amount: 50,
-            category: "grocery",
-            method: "cash",
-            created_at: new Date(),
-        })
-    }
+    // const addExpense = async () => {
+    //     await addDoc(collection(db, "expenses"), {
+    //         amount: 50,
+    //         category: "grocery",
+    //         method: "cash",
+    //         created_at: new Date(),
+    //     })
+    // }
 
     return (
         <div className="my-2">
