@@ -7,8 +7,9 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import MoreMenu from "./MoreMenu";
+import { Expense } from "@/types/ExpenseType";
 
-const TableExpenses = () => {
+const TableExpenses = ({ expenses }: { expenses: Expense[] }) => {    console.log("table " + expenses)
     return (
         <Table>
             <TableHeader>
@@ -20,12 +21,17 @@ const TableExpenses = () => {
                 </TableRow>
             </TableHeader>
             <TableBody>
+                {
+                    expenses.map((expense) => (
                 <TableRow>
-                    <TableCell className="font-medium">gas</TableCell>
-                    <TableCell>$32.00</TableCell>
-                    <TableCell>Credit Card</TableCell>
+                    <TableCell className="font-medium">{expense.category}</TableCell>
+                    <TableCell>${expense.amount}</TableCell>
+                    <TableCell>{expense.method}</TableCell>
                     <TableCell className="text-right"><MoreMenu/></TableCell>
                 </TableRow>
+                    ))
+                }
+                
             </TableBody>
         </Table>
 
